@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #050a14;
+  --color-brand-primary: #00c3ff;
+  --color-brand-secondary: #0055ff;
+  --color-brand-accent: #00f2fe;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #050a14;
+  color: #ffffff;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #00c3ff, #00f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-effect {
+  box-shadow: 0 0 20px rgba(0, 195, 255, 0.3);
+}
