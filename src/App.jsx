@@ -2,6 +2,7 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Values from './components/Values';
 import Services from './components/Services';
+import SaaS from './components/SaaS';
 import WhatsAppAI from './components/WhatsAppAI';
 import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
@@ -15,6 +16,7 @@ function App() {
         <Hero />
         <Values />
         <Services />
+        <SaaS />
         <WhatsAppAI />
         <Testimonials />
         <ContactForm />
