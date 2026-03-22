@@ -10,6 +10,7 @@ export default function ContactForm() {
 
     const params = new URLSearchParams({
       'form-name': 'contato',
+      'bot-field': '',
       nome: formData.nome,
       email: formData.email,
       whatsapp: formData.whatsapp,
@@ -17,7 +18,7 @@ export default function ContactForm() {
     });
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/form.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: params.toString(),
