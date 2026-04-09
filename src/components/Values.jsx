@@ -27,16 +27,20 @@ const values = [
 
 export default function Values() {
   return (
-    <section className="py-24 bg-surface-nested">
+    <section className="py-24 bg-transparent relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
           {values.map((v, i) => (
-            <div key={i} className="p-10 rounded-2xl bg-surface-elevated card-soft-shadow transition hover:shadow-lg hover:shadow-primary/5">
-              <div className="w-16 h-16 bg-secondary-container/30 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">{v.icon}</svg>
+            <div
+              key={i}
+              className="dark-glass-card p-8 md:p-10 card-soft-shadow animate-card"
+              style={{ animationDelay: `${i * 0.35}s` }}
+            >
+              <div className="w-16 h-16 bg-primary-container/25 rounded-full flex items-center justify-center mx-auto mb-6 border border-white/10">
+                <svg className="w-8 h-8 text-[#d4a5ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">{v.icon}</svg>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-on-background">{v.title}</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed">{v.desc}</p>
+              <h3 className="text-xl font-bold mb-4 text-white">{v.title}</h3>
+              <p className="text-white/72 text-sm leading-relaxed">{v.desc}</p>
             </div>
           ))}
         </div>

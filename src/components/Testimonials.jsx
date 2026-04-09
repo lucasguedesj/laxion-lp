@@ -21,23 +21,23 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-surface-nested" id="depoimentos">
+    <section className="py-24 bg-transparent relative" id="depoimentos">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-[2rem] font-bold text-on-background">O que dizem nossos clientes</h2>
+          <h2 className="text-2xl md:text-[2rem] font-bold text-white">O que dizem nossos clientes</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((t, i) => (
-            <div key={i} className="p-8 bg-surface-elevated rounded-2xl card-soft-shadow">
-              <div className="flex text-amber-500 mb-5 text-sm gap-0.5">
+            <div key={i} className="dark-glass-card p-8 card-soft-shadow animate-card" style={{ animationDelay: `${i * 0.25}s` }}>
+              <div className="flex text-amber-400 mb-5 text-sm gap-0.5">
                 {[...Array(5)].map((_, j) => <span key={j}>★</span>)}
               </div>
-              <p className="text-on-surface-variant italic mb-8 leading-relaxed text-sm">"{t.quote}"</p>
+              <p className="text-white/75 italic mb-8 leading-relaxed text-sm">"{t.quote}"</p>
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center font-bold text-sm">{t.initials}</div>
+                <div className="w-11 h-11 bg-primary-container/35 text-white border border-white/15 rounded-full flex items-center justify-center font-bold text-sm">{t.initials}</div>
                 <div>
-                  <p className="font-semibold text-sm text-on-background">{t.name}</p>
-                  <p className="text-xs text-on-surface-variant">{t.role}</p>
+                  <p className="font-semibold text-sm text-white">{t.name}</p>
+                  <p className="text-xs text-white/60">{t.role}</p>
                 </div>
               </div>
             </div>

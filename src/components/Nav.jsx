@@ -12,11 +12,11 @@ export default function Nav() {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline gap-6 lg:gap-8">
-              <a className="text-white/70 hover:text-white transition px-2 py-2 text-sm font-medium" href="#servicos">Serviços</a>
-              <a className="text-white/70 hover:text-white transition px-2 py-2 text-sm font-medium" href="#saas">Criação SaaS</a>
-              <a className="text-white/70 hover:text-white transition px-2 py-2 text-sm font-medium" href="#ia-whatsapp">WhatsApp IA</a>
-              <a className="text-white/70 hover:text-white transition px-2 py-2 text-sm font-medium" href="#depoimentos">Resultados</a>
-              <a className="btn-primary px-6 py-2.5 text-sm inline-flex items-center justify-center" href="#contato">Acelerar Meu Negócio</a>
+              <a className="text-white/78 hover:text-white transition px-2 py-2 text-sm font-medium" href="#servicos">Serviços</a>
+              <a className="text-white/78 hover:text-white transition px-2 py-2 text-sm font-medium" href="#saas">Criação SaaS</a>
+              <a className="text-white/78 hover:text-white transition px-2 py-2 text-sm font-medium" href="#ia-whatsapp">WhatsApp IA</a>
+              <a className="text-white/78 hover:text-white transition px-2 py-2 text-sm font-medium" href="#depoimentos">Resultados</a>
+              <a className="btn-primary px-5 py-2.5 text-sm inline-flex items-center justify-center" href="#contato">Acelerar Meu Negócio</a>
             </div>
           </div>
         </div>

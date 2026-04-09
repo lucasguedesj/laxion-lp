@@ -6,17 +6,17 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(90vw,52rem)] h-64 rounded-full bg-gradient-to-r from-transparent via-white/12 to-transparent blur-3xl pointer-events-none metallic-pulse" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center lg:text-left lg:ml-0 lg:mr-auto">
-          <h1 className="text-[2.25rem] md:text-[2.75rem] lg:text-[3.5rem] font-bold tracking-[-0.02em] leading-tight mb-6 text-white/95">
+          <h1 className="text-[2.25rem] md:text-[2.75rem] lg:text-[3.5rem] font-bold tracking-[-0.02em] leading-tight mb-6 text-white">
             Projetamos sua curva de <span className="text-gradient">crescimento com IA</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/65 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          <p className="text-lg md:text-xl text-white/78 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             A Hazze utiliza inteligência de dados, automação de WhatsApp e estratégias de alta performance para tracionar negócios de forma escalável e inteligente.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-            <a className="btn-primary px-8 py-4 text-center font-bold transition-transform hover:scale-[1.02]" href="#contato">
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
+            <a className="btn-primary px-8 py-3.5 text-center font-bold" href="#contato">
               Acelerar Meu Negócio
             </a>
-            <a className="px-8 py-4 rounded-2xl font-semibold text-white bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/10 transition text-center" href="#servicos">
+            <a className="px-8 py-3.5 rounded-lg font-semibold text-white bg-white/10 hover:bg-white/16 backdrop-blur-sm border border-white/12 transition text-center" href="#servicos">
               Conhecer Soluções
             </a>
           </div>
