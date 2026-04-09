@@ -1,23 +1,21 @@
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-20">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-secondary rounded-full blur-[120px]"></div>
-      </div>
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-surface">
+      <div className="absolute top-20 left-[12%] w-72 h-72 rounded-full bg-primary-container/12 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-10 right-[8%] w-80 h-80 rounded-full bg-secondary-container/40 blur-[120px] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
+        <div className="max-w-4xl mx-auto text-center lg:text-left lg:ml-0 lg:mr-auto">
+          <h1 className="text-[2.25rem] md:text-[2.75rem] lg:text-[3.5rem] font-bold tracking-[-0.02em] leading-tight mb-6 text-on-background">
             Projetamos sua curva de <span className="text-gradient">crescimento com IA</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
-            A Laxion utiliza inteligência de dados, automação de WhatsApp e estratégias de alta performance para tracionar negócios de forma escalável e inteligente.
+          <p className="text-lg md:text-xl text-on-surface-variant mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            A Hazze utiliza inteligência de dados, automação de WhatsApp e estratégias de alta performance para tracionar negócios de forma escalável e inteligente.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a className="px-8 py-4 bg-brand-primary hover:bg-brand-accent text-brand-dark font-bold rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-brand-primary/20" href="#contato">
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            <a className="btn-primary px-8 py-4 text-center font-bold transition-transform hover:scale-[1.02]" href="#contato">
               Acelerar Meu Negócio
             </a>
-            <a className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 font-bold rounded-xl transition-all" href="#servicos">
+            <a className="px-8 py-4 bg-surface-container rounded-2xl font-semibold text-primary hover:bg-surface-nested transition text-center" href="#servicos">
               Conhecer Soluções
             </a>
           </div>

@@ -1,6 +1,6 @@
 const testimonials = [
   {
-    quote: "A implementação do chatbot com IA da Laxion mudou o jogo pra gente. Atendemos 24h e as vendas no final de semana explodiram.",
+    quote: "A implementação do chatbot com IA da Hazze mudou o jogo pra gente. Atendemos 24h e as vendas no final de semana explodiram.",
     name: "Ricardo Costa",
     role: "CEO, E-shop Brasil",
     initials: "RC",
@@ -21,23 +21,23 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-white/[0.02]" id="depoimentos">
+    <section className="py-24 bg-surface-nested" id="depoimentos">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold">O que dizem nossos clientes</h2>
+          <h2 className="text-2xl md:text-[2rem] font-bold text-on-background">O que dizem nossos clientes</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-            <div key={i} className="p-8 bg-brand-dark/50 border border-white/10 rounded-2xl">
-              <div className="flex text-yellow-500 mb-4">
+            <div key={i} className="p-8 bg-surface-elevated rounded-2xl card-soft-shadow">
+              <div className="flex text-amber-500 mb-5 text-sm gap-0.5">
                 {[...Array(5)].map((_, j) => <span key={j}>★</span>)}
               </div>
-              <p className="text-gray-400 italic mb-6">"{t.quote}"</p>
+              <p className="text-on-surface-variant italic mb-8 leading-relaxed text-sm">"{t.quote}"</p>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-brand-primary/30 rounded-full flex items-center justify-center font-bold">{t.initials}</div>
+                <div className="w-11 h-11 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center font-bold text-sm">{t.initials}</div>
                 <div>
-                  <p className="font-bold text-sm">{t.name}</p>
-                  <p className="text-xs text-gray-500">{t.role}</p>
+                  <p className="font-semibold text-sm text-on-background">{t.name}</p>
+                  <p className="text-xs text-on-surface-variant">{t.role}</p>
                 </div>
               </div>
             </div>

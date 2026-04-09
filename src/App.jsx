@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="overflow-x-hidden scroll-smooth">
+    <div className="overflow-x-hidden scroll-smooth bg-surface min-h-screen">
       <Nav />
       <main>
         <Hero />

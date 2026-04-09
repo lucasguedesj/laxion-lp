@@ -55,28 +55,34 @@ const services = [
 
 function ServiceCard({ service }) {
   return (
-    <div className="group p-8 bg-brand-dark border border-white/5 rounded-3xl hover:bg-white/5 hover:border-brand-primary/20 transition duration-300 flex flex-col">
-      <div className="mb-6 text-brand-primary">
+    <div className="group p-8 bg-surface-elevated rounded-3xl card-soft-shadow flex flex-col transition hover:shadow-lg hover:shadow-primary/5">
+      <div className="mb-6 text-primary-container">
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">{service.icon}</svg>
       </div>
-      <h4 className="text-2xl font-bold mb-3">{service.title}</h4>
-      <p className="text-gray-400 mb-4 flex-1">{service.desc}</p>
-      <ul className="text-sm text-gray-500 space-y-2 mb-6">
+      <h4 className="text-2xl font-bold mb-3 text-on-background">{service.title}</h4>
+      <p className="text-on-surface-variant mb-4 flex-1 text-sm leading-relaxed">{service.desc}</p>
+      <ul className="text-sm text-on-surface-variant space-y-4 mb-6">
         {service.items.map((item, j) => (
-          <li key={j} className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary/60"></span>
+          <li key={j} className="flex items-center gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary-container shrink-0"></span>
             {item}
           </li>
         ))}
       </ul>
-      {/* Exemplo demonstrativo */}
-      <div className="mt-auto pt-6 border-t border-white/5">
-        <p className="text-xs text-gray-500 uppercase tracking-wider mb-4">Exemplo de resultados</p>
+      <div className="mt-auto pt-8 rounded-2xl bg-surface-container/80 p-5">
+        <p className="text-[0.6875rem] font-semibold text-on-surface-variant uppercase tracking-widest mb-4">Exemplo de resultados</p>
         <div className="flex flex-wrap gap-3">
           {service.example.metrics.map((m, k) => (
-            <div key={k} className={`px-4 py-2 rounded-xl ${m.highlight ? 'bg-brand-primary/10 border border-brand-primary/30' : 'bg-white/5'}`}>
-              <span className="text-xs text-gray-500 block">{m.label}</span>
-              <span className={`font-bold ${m.highlight ? 'text-brand-primary' : 'text-gray-300'}`}>{m.value}</span>
+            <div
+              key={k}
+              className={`px-4 py-2.5 rounded-xl ${
+                m.highlight
+                  ? 'bg-secondary-container text-on-secondary-container'
+                  : 'bg-surface-elevated text-on-background'
+              }`}
+            >
+              <span className={`text-[0.6875rem] font-medium block ${m.highlight ? 'opacity-90' : 'text-on-surface-variant'}`}>{m.label}</span>
+              <span className="font-bold">{m.value}</span>
             </div>
           ))}
         </div>
@@ -87,47 +93,53 @@ function ServiceCard({ service }) {
 
 export default function Services() {
   return (
-    <section className="py-24 bg-white/[0.01]" id="servicos">
+    <section className="py-24 bg-surface" id="servicos">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Nossas <span className="text-brand-primary">Soluções</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Estratégias completas para todas as etapas da jornada do cliente. Veja exemplos de resultados que entregamos.</p>
+          <h2 className="text-3xl md:text-[2.5rem] font-bold mb-4 tracking-[-0.02em] text-on-background">
+            Nossas <span className="text-gradient">Soluções</span>
+          </h2>
+          <p className="text-on-surface-variant max-w-2xl mx-auto text-base leading-relaxed">
+            Estratégias completas para todas as etapas da jornada do cliente. Veja exemplos de resultados que entregamos.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((s, i) => (
             <ServiceCard key={i} service={s} />
           ))}
-          {/* WhatsApp IA - Destaque */}
-          <div className="md:col-span-2 p-8 bg-gradient-to-br from-brand-secondary/20 to-brand-primary/10 border border-brand-primary/30 rounded-3xl relative overflow-hidden group">
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+          <div className="md:col-span-2 p-10 md:p-12 rounded-3xl bg-surface-nested relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary-container/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
               <div className="flex-1">
-                <div className="inline-block px-3 py-1 bg-brand-primary text-brand-dark text-[10px] font-bold uppercase rounded mb-4">Mais Procurado</div>
-                <h4 className="text-3xl font-bold mb-3">Automação de WhatsApp com IA</h4>
-                <p className="text-gray-300 mb-6">Chatbots inteligentes que entendem o contexto e atendem 24/7, transformando conversas em vendas sem intervenção humana constante.</p>
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <div className="px-4 py-2 rounded-xl bg-brand-primary/10 border border-brand-primary/30">
-                    <span className="text-xs text-gray-500 block">Tempo de resposta</span>
-                    <span className="font-bold text-brand-primary">Instantâneo</span>
-                  </div>
-                  <div className="px-4 py-2 rounded-xl bg-brand-primary/10 border border-brand-primary/30">
-                    <span className="text-xs text-gray-500 block">Leads qualificados</span>
-                    <span className="font-bold text-brand-primary">+65%</span>
-                  </div>
-                  <div className="px-4 py-2 rounded-xl bg-brand-primary/10 border border-brand-primary/30">
-                    <span className="text-xs text-gray-500 block">Custo de atendimento</span>
-                    <span className="font-bold text-brand-primary">-60%</span>
-                  </div>
+                <div className="inline-block px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wide mb-4">
+                  Mais procurado
                 </div>
-                <a className="inline-flex items-center text-brand-primary font-bold hover:underline" href="#contato">
-                  Solicitar Demonstração
+                <h4 className="text-2xl md:text-3xl font-bold mb-3 text-on-background">Automação de WhatsApp com IA</h4>
+                <p className="text-on-surface-variant mb-8 leading-relaxed">
+                  Chatbots inteligentes que entendem o contexto e atendem 24/7, transformando conversas em vendas sem intervenção humana constante.
+                </p>
+                <div className="flex flex-wrap gap-3 mb-8">
+                  {[
+                    { label: 'Tempo de resposta', value: 'Instantâneo' },
+                    { label: 'Leads qualificados', value: '+65%' },
+                    { label: 'Custo de atendimento', value: '-60%' },
+                  ].map((x) => (
+                    <div key={x.label} className="px-4 py-2.5 rounded-xl bg-secondary-container text-on-secondary-container">
+                      <span className="text-[0.6875rem] font-medium block opacity-90">{x.label}</span>
+                      <span className="font-bold">{x.value}</span>
+                    </div>
+                  ))}
+                </div>
+                <a className="inline-flex items-center font-semibold text-primary hover:text-primary-container transition" href="#contato">
+                  Solicitar demonstração
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>
                 </a>
               </div>
               <div className="w-full md:w-1/3 flex justify-center">
                 <div className="relative w-48 h-48">
-                  <div className="absolute inset-0 bg-brand-primary/20 rounded-full animate-ping opacity-25"></div>
-                  <div className="relative z-10 w-full h-full bg-brand-dark border border-brand-primary/50 rounded-3xl flex items-center justify-center glow-effect">
-                    <svg className="w-20 h-20 text-brand-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+                  <div className="absolute inset-0 bg-primary-container/20 rounded-full animate-ping opacity-20" />
+                  <div className="relative z-10 w-full h-full bg-surface-elevated rounded-3xl flex items-center justify-center card-soft-shadow">
+                    <svg className="w-20 h-20 text-primary-container" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
                   </div>
                 </div>
               </div>
