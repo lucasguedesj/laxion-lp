@@ -18,9 +18,163 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--color-surface);
+  background-color: #e8e4f0;
   color: var(--color-on-background);
   line-height: 1.5;
+}
+
+/* ========== Fundo metálico + gradiente animado ========== */
+.app-metallic-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+}
+
+.app-metallic-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(ellipse 120% 80% at 20% 10%, rgba(138, 5, 190, 0.08), transparent 50%),
+    radial-gradient(ellipse 100% 60% at 80% 90%, rgba(64, 2, 88, 0.06), transparent 45%),
+    linear-gradient(
+      128deg,
+      #dedae8 0%,
+      #f2f0f7 12%,
+      #e6e2ee 24%,
+      #faf9fd 36%,
+      #d8d3e4 48%,
+      #efecf5 60%,
+      #e2dde9 72%,
+      #f6f4fa 84%,
+      #dcd7e6 100%
+    );
+  background-size: 100% 100%, 100% 100%, 400% 400%;
+  background-position: center, center, 0% 50%;
+  animation: metallic-shift 22s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.app-metallic-shell::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(
+    118deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.55) 48%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.08) 52%,
+    transparent 62%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  background-position: -100% 0;
+  animation: metal-shine 14s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+@keyframes metallic-shift {
+  0%, 100% {
+    background-position: center, center, 0% 50%;
+  }
+  50% {
+    background-position: center, center, 100% 50%;
+  }
+}
+
+@keyframes metal-shine {
+  0%, 100% {
+    background-position: -60% 0;
+  }
+  50% {
+    background-position: 160% 0;
+  }
+}
+
+/* Entrada suave do conteúdo */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nav-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-nav-in {
+  animation: nav-slide-down 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.app-metallic-shell main > section {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.app-metallic-shell main > section:nth-child(1) { animation-delay: 0.04s; }
+.app-metallic-shell main > section:nth-child(2) { animation-delay: 0.1s; }
+.app-metallic-shell main > section:nth-child(3) { animation-delay: 0.16s; }
+.app-metallic-shell main > section:nth-child(4) { animation-delay: 0.22s; }
+.app-metallic-shell main > section:nth-child(5) { animation-delay: 0.28s; }
+.app-metallic-shell main > section:nth-child(6) { animation-delay: 0.34s; }
+.app-metallic-shell main > section:nth-child(7) { animation-delay: 0.4s; }
+
+.app-metallic-shell footer {
+  animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-metallic-shell::before,
+  .app-metallic-shell::after {
+    animation: none;
+    background-size: 100% 100%, 100% 100%, 100% 100%;
+    background-position: center;
+  }
+
+  .app-metallic-shell main > section,
+  .app-metallic-shell footer,
+  .animate-nav-in,
+  .animate-float,
+  .animate-shimmer-soft,
+  .metallic-pulse {
+    animation: none !important;
+  }
+}
+
+/* Brilho muito suave em hover para cards (opcional utilitário) */
+@keyframes shimmer-soft {
+  0% { opacity: 0.55; }
+  50% { opacity: 1; }
+  100% { opacity: 0.55; }
+}
+
+.animate-shimmer-soft {
+  animation: shimmer-soft 5s ease-in-out infinite;
+}
+
+@keyframes metallic-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.62; }
+}
+
+.metallic-pulse {
+  animation: metallic-pulse 14s ease-in-out infinite;
 }
 
 /* Mesmo gradiente vertical da logo (claro embaixo → escuro em cima no SVG) */
@@ -37,10 +191,13 @@ body {
   font-weight: 600;
   border-radius: 1.5rem;
   box-shadow: 0 8px 24px -4px rgba(64, 2, 88, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 
 .btn-primary:hover {
   filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -4px rgba(64, 2, 88, 0.28);
 }
 
 @keyframes float {
@@ -54,7 +211,7 @@ body {
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
